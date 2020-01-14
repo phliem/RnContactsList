@@ -5,12 +5,23 @@ import { createStackNavigator } from 'react-navigation-stack';
 // Components
 import ContactsScreen from './src/components/ContactsScreen';
 
+// Constants & Services
+import COLORS from './src/res/colors';
+import TYPOGRAPHY from './src/res/typography';
+
 const AppNavigator = createStackNavigator(
   {
     Contacts: ContactsScreen,
   },
   {
     initialRouteName: 'Contacts',
+    defaultNavigationOptions: {
+      headerTitleAlign: 'center',
+      headerStyle: {
+        backgroundColor: COLORS.backgroundHead,
+      },
+      headerTitleStyle: TYPOGRAPHY.navigation,
+    },
   },
 );
 
