@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should test UserDetails Component render and match snapshot 1`] = `
+<View
+  style={
+    Array [
+      undefined,
+      Object {
+        "backgroundColor": "rgba(68, 66, 248, 0.8)",
+        "padding": 20,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginTop": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 26,
+          "fontWeight": "bold",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Liem
+       
+      <Text
+        style={
+          Object {
+            "fontWeight": "normal",
+          }
+        }
+      >
+        Pham
+      </Text>
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "marginBottom": 5,
+        }
+      }
+    >
+      Developer
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "borderColor": "#ffffff",
+        "borderWidth": 0.5,
+        "margin": 40,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    About me
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "lineHeight": 20,
+      }
+    }
+  >
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti architecto hic optio illum rerum, nisi sunt accusantium in vero voluptate similique earum quidem possimus, dolores saepe nobis perspiciatis dignissimos reiciendis. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
+  </Text>
+</View>
+`;
