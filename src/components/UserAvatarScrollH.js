@@ -12,7 +12,7 @@ import {
 import UserAvatar from './UserAvatar';
 
 // Constants & Services
-import type USER from '../res/types';
+import type { USER } from '../res/types';
 import SIZES from '../res/sizes';
 import COLORS from '../res/colors';
 const { width } = Dimensions.get('window');
@@ -23,7 +23,7 @@ type PROPS = {
     current: ?HTMLDivElement,
   },
   data: Array<USER>,
-  scrollToUser: function,
+  scrollToUser: ({ toIndex?: number, direction?: number }) => void,
   selectedIndex: number,
 };
 
@@ -33,7 +33,9 @@ class UserAvatarScrollH extends React.PureComponent<PROPS> {
    * Update the User Details List
    * @param {Object} e
    */
-  onMomentumScrollEnd = (e: {nativeEvent: {contentOffset: {x: number}}}) => {
+  onMomentumScrollEnd = (e: {
+    nativeEvent: { contentOffset: { x: number } },
+  }) => {
     const currentOffsetX = e.nativeEvent.contentOffset.x;
     const toIndex = Math.round(currentOffsetX / SIZES.avatarInterval);
     this.props.scrollToUser({ toIndex });
@@ -47,7 +49,7 @@ class UserAvatarScrollH extends React.PureComponent<PROPS> {
     this.props.scrollToUser({ toIndex });
   };
 
-  renderItem = ({ item, index }: {item: USER, index: number}) => (
+  renderItem = ({ item, index }: { item: USER, index: number }) => (
     <TouchableOpacity style={styles.avatar} onPress={() => this.onPress(index)}>
       <UserAvatar id={item.id} isActive={this.props.selectedIndex === index} />
     </TouchableOpacity>

@@ -1,4 +1,15 @@
-const SIZES = {
+// @flow
+const SIZES: {
+  spaceXS: number,
+  spaceS: number,
+  spaceM: number,
+  spaceL: number,
+  avatarWidth: number,
+  avatarHeight: number,
+  avatarMarginH: number,
+  avatarMarginV: number,
+  avatarInterval: number,
+} = {
   // General
   spaceXS: 5,
   spaceS: 10,

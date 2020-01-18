@@ -47,13 +47,15 @@ class ContactsScreen extends React.PureComponent<null, STATE> {
    */
   scrollToUser = ({
     direction,
-    toIndex,
+    toIndex = 0,
   }: {
     direction?: number,
     toIndex?: number,
   }) => {
     // Get the relevant index to scroll to
-    let nextIndex = direction ? this.state.selectedIndex + direction : toIndex;
+    let nextIndex: number = direction
+      ? this.state.selectedIndex + direction
+      : toIndex;
     nextIndex = getValidIndex(nextIndex, DATA.length);
 
     // Scroll both list to an index

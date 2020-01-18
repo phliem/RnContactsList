@@ -6,19 +6,19 @@ import { FlatList, Platform } from 'react-native';
 import UserDetails from './UserDetails';
 
 // Constants & Services
-import type USER from '../res/types';
+import type { USER } from '../res/types';
 
 type PROPS = {
   pageRef: {
     current: ?HTMLDivElement,
   },
   data: Array<USER>,
-  scrollToUser: function,
+  scrollToUser: ({ toIndex?: number, direction?: number }) => void,
   itemHeight: number,
 };
 
 class UserDetailsScrollV extends React.PureComponent<PROPS> {
-  onScrollEndDrag = (e: {nativeEvent: {velocity: {y: number}}}) => {
+  onScrollEndDrag = (e: { nativeEvent: { velocity: { y: number } } }) => {
     const velocityY = e.nativeEvent.velocity.y;
     let direction;
 
@@ -37,7 +37,7 @@ class UserDetailsScrollV extends React.PureComponent<PROPS> {
     index,
   });
 
-  renderItem = ({ item }: {item: USER}) => (
+  renderItem = ({ item }: { item: USER }) => (
     <UserDetails
       user={item}
       style={{

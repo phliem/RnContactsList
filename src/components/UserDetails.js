@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 // Constants & Services
-import type USER from '../res/types';
+import type { USER } from '../res/types';
 import COLORS from '../res/colors';
 import TYPOGRAPHY from '../res/typography';
 import SIZES from '../res/sizes';
