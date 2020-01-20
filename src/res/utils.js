@@ -1,3 +1,4 @@
+// @flow
 /**
  * Return a valid index inbetween 0 and max array index
  * This is to avoid accesing an index that don't exist
@@ -9,7 +10,7 @@
  * @param {Number} arrayLength
  * @returns {Number} index that is inbetween index and arrayLength
  */
-const getValidIndex = (index, arrayLength = 0) => {
+const getValidIndex = (index: number, arrayLength: number = 0): number => {
   if (index <= 0) {
     return 0;
   }

@@ -1,3 +1,4 @@
+// @flow
 import COLORS from './colors';
 import SIZES from './sizes';
 

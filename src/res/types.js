@@ -1,3 +1,4 @@
+// @flow
 export type USER = {
   id: string,
   firstname: string,
