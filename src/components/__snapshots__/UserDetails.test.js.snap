@@ -6,7 +6,6 @@ exports[`Should test UserDetails Component render and match snapshot 1`] = `
     Array [
       undefined,
       Object {
-        "backgroundColor": "rgba(68, 66, 248, 0.8)",
         "padding": 20,
       },
     ]
