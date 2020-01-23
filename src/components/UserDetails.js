@@ -44,7 +44,6 @@ const UserDetails = (props: PROPS) => {
 
 const styles = StyleSheet.create({
   wrap: {
-    backgroundColor: COLORS.backgroundMain,
     padding: SIZES.spaceM,
   },
   title: {

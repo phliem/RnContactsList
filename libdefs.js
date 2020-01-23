@@ -1,4 +1,5 @@
 declare module 'react-native' {
+  declare var Animated;
   declare var Dimensions;
   declare var FlatList;
   declare var Image;

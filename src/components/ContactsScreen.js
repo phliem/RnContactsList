@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { Animated, StyleSheet, Dimensions } from 'react-native';
 import { HeaderHeightContext } from 'react-navigation-stack';
 
 // Components
@@ -8,12 +8,20 @@ import UserAvatarScrollH from './UserAvatarScrollH';
 import UserDetailsScrollV from './UserDetailsScrollV';
 
 // Constants & Services
+import COLORS from '../res/colors';
 import DATA from '../data/users.mock.json';
 import SIZES from '../res/sizes';
 import { getValidIndex } from '../res/utils';
 
 type STATE = {
   selectedIndex: number,
+  prevIndex: number,
+  fadeAnim: Animated.Value,
+};
+
+const getColorIndex = (index) => {
+  const colorsLength = COLORS.backgrounds.length;
+  return COLORS.backgrounds[index % colorsLength];
 };
 
 class ContactsScreen extends React.PureComponent<null, STATE> {
@@ -24,7 +32,25 @@ class ContactsScreen extends React.PureComponent<null, STATE> {
 
   state = {
     selectedIndex: 0,
+    prevIndex: 0,
+    fadeAnim: new Animated.Value(0),
   };
+
+  isAnimating = false;
+
+  componentDidUpdate() {
+    if (this.isAnimating) {
+      return;
+    }
+
+    this.isAnimating = true;
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 1,
+      duration: 600,
+    }).start(() => {
+      this.isAnimating = false;
+    });
+  }
 
   /**
    * Calculate the screen height available for UserDetailsScrollV
@@ -73,12 +99,31 @@ class ContactsScreen extends React.PureComponent<null, STATE> {
       });
     }
 
-    this.setState({ selectedIndex: nextIndex });
+    this.setState((prev) => ({
+      selectedIndex: nextIndex,
+      prevIndex: prev.selectedIndex,
+      fadeAnim: new Animated.Value(0),
+    }));
   };
 
   render() {
+    const interpolatedColor = this.state.fadeAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: [
+        getColorIndex(this.state.prevIndex),
+        getColorIndex(this.state.selectedIndex),
+      ],
+    });
+
     return (
-      <View style={styles.wrap}>
+      <Animated.View
+        style={[
+          styles.wrap,
+          {
+            backgroundColor: interpolatedColor,
+          },
+        ]}
+      >
         <UserAvatarScrollH
           avatarRef={this.avatarRef}
           data={DATA}
@@ -92,7 +137,7 @@ class ContactsScreen extends React.PureComponent<null, STATE> {
           scrollToUser={this.scrollToUser}
           itemHeight={this.getUserDetailsHeight()}
         />
-      </View>
+      </Animated.View>
     );
   }
 }
